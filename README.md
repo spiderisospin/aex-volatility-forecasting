@@ -19,7 +19,8 @@ $$\hat{y}_t^{HAR+XGB} = \hat{y}_t^{HAR} + \hat{\varepsilon}_t^{XGB},$$
 
 where $\hat{y}_t^{HAR}$ is the HAR prediction and $\hat{\varepsilon}_t^{XGB}$ denotes the residual estimated by XGBoost.
 
-Models are evaluated using an **expanding-window walk-forward scheme**, in order to ensure no look-ahead bias occurs in our time-series data.
+To achieve optimal performance, our model hyperparameters are tuned using Bayesian optimization (Optuna).
+Models are evaluated using an **expanding-window walk-forward scheme**, in order to ensure no look-ahead bias occurs in our time-series data. The performances are evaluated using a forecasting (signal) stability algorithm across different periods and an out-of-sample analysis.
 
 ### Volatility Targeting
 To implement in our volatility targeting algorithm, we define the portfolio leverage $L_t$:
